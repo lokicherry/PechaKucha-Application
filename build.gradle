@@ -32,3 +32,20 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+task startApp(type: Exec, dependsOn: ["bootRepackage"]) {
+	workingDir "."
+	commandLine 'docker-compose', '-f', 'docker-compose-local.yml', 'up', '--force-recreate'
+}
+
+task stopApp(type: Exec) {
+	workingDir "."
+	commandLine 'docker-compose', '-f', 'docker-compose-local.yml', 'down', '--rmi', 'local'
+}
+
+task startIntegrationDatabase(type: Exec) {
+	commandLine "docker", "run", "--rm", "-it", "-p", "5432:5432", "--name", "pechakucha", "-e", "POSTGRES_PASSWORD=mysecretpassword", "-d", "postgres:9.6.5-alpine"
+}
+
+task stopIntegrationDatabase(type: Exec) {
+	commandLine "docker", "rm", "-f", "pechakucha"
+}
