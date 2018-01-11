@@ -1,0 +1,10 @@
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pechakucha
+    driverClassName: org.postgresql.Driver
+    username: pechakucha
+    password: mysecretpassword
+    testWhileIdle: true
+    validationQuery: SELECT 1

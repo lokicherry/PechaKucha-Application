@@ -1,0 +1,22 @@
+version: "2.0"
+
+services:
+  faap:
+    build:
+      context: application
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - PECHAKUCHA_DB=pechakucha-database
+    depends_on:
+      - pechakucha-database
+
+  pechakucha:
+    image: postgres:9.6.5-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=pechakucha
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=pechakucha
