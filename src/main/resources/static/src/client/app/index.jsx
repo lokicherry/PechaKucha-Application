@@ -131,7 +131,7 @@ function startingTimer() {
                 function timeUp(){
                     var timerWatchElement = document.getElementById("timerWatch");
                     console.log(timerWatchElement.innerHTML);
-                    timerWatchElement.innerHTML = "<div id='timeUp'> <div><h1>TIME UP</h1></div> <a href='../../feedback.html'>Wanna Take Feedback?</a></div>";
+                    timerWatchElement.innerHTML = "<div id='timeUp'> <div><h1>TIME UP</h1></div> <a href='feedback.html'>Wanna Take Feedback?</a></div>";
                 }
             }}
 
@@ -192,6 +192,25 @@ function startingTimer() {
     }
     ReactDOM.render(<StartingTimerForPresentation/>,document.getElementById("container"));
 }
+
+
+class FirstPageFeedback extends React.Component{
+    render(){
+        return(
+            <div id="feedback">
+                <a href='feedback.html'>
+                    <div id="feedbackDiv">Feedback</div>
+                </a>
+            </div>
+        )
+    }
+}
+ReactDOM.render(<FirstPageFeedback/>,document.getElementById("container2"));
+
+
+
+
+
 /*
 function startingTimer () {
     var noOfSlides = document.getElementById("noOfSlidesInPPT").value;

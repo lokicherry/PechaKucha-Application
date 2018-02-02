@@ -43,9 +43,18 @@ body{
     display: block;
 
 }
+#feedbackDiv{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    background: #f5f3d4;
+}
 .container2{
     width:50%;
     display: block;
+}
+#feedback{
+    width: 100%;
 }
 
 
